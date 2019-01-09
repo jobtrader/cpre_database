@@ -288,7 +288,6 @@ def calculate_grade(selected_semester):
     try:
         year, semester = selected_semester.split(' ')
         calculated_df, past_to_selected_semester = filter_semester(year, semester)
-        print(tabulate(past_to_selected_semester, headers='keys', tablefmt='psql'))
         calculated_df['Score'] = df.apply(lambda row: lookup_grade_score(row['Grade']), axis=1)
         past_to_selected_semester['Score'] = df.apply(lambda row: lookup_grade_score(row['Grade']), axis=1)
 
